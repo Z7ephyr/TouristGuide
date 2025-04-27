@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-gradient">
+  <div class="container">
+    <h3>Categories in {{ destinationName }}</h3>
+    <div class="category-list">
+      <div *ngFor="let category of categories" 
+           class="category-card" 
+           [style.backgroundImage]="'url(/assets/' + category.image + '.jpg)'" 
+           (click)="goToCategory(category)">
+        <div class="category-name">{{ category.name }}</div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+

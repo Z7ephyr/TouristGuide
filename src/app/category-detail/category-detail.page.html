@@ -1,0 +1,42 @@
+<ion-header class="modern-header">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="back-button" (click)="goBack()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ category }} in {{ destination }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-gradient">
+  <div class="category-container">
+    <h1 class="category-title">{{ category }}</h1>
+    <p class="category-subtitle">Discover the best {{ category }} in {{ destination }}</p>
+    
+    <div class="card-container">
+      <div class="card" *ngFor="let item of categoryItems">
+        <div class="card-image">
+          <img [src]="item.image" alt="{{ item.name }}">
+          <div class="rating" *ngIf="item.rating">
+            <ion-icon name="star"></ion-icon>
+            <span>{{ item.rating }}</span>
+          </div>
+        </div>
+        <div class="card-content">
+          <h2>{{ item.name }}</h2>
+          <p class="address">
+            <ion-icon name="location-outline"></ion-icon>
+            {{ item.address }}
+          </p>
+          <p class="phone" *ngIf="item.phoneNumber">
+            <ion-icon name="call-outline"></ion-icon>
+            {{ item.phoneNumber }}
+          </p>
+          <ion-button expand="block" class="details-button" (click)="goToPlaceDetails(item)">View Details</ion-button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,17 @@
+<ion-content class="bg-gradient">
+  <div class="container">
+    <app-profile></app-profile> 
+    <h2>Select your destination</h2>
+
+    <div class="destination-list">
+      <div *ngFor="let destination of destinations" 
+           class="destination-card" 
+           [style.backgroundImage]="'url(/assets/' + destination + '.jpg)'" 
+           (click)="goToDestination(destination)">
+        <div class="destination-name">{{ destination }}</div>
+      </div>
+    </div>
+    
+  
+  </div>
+</ion-content>
